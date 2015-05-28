@@ -1,16 +1,125 @@
-<div class="container">
-  <h2>Delphi Data</h2>
-  <p>Smoking in adults by age from 1984-Present:</p>            
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Year</th>
-        <th>Gender</th>
-        <th>Percentage</th>
-        <th>Respondents</th>
-      </tr>
-    </thead>
-    <tbody id="delphi-table">
-    </tbody>
-  </table>
-</div>
+<!DOCTYPE HTML5>
+  <script>console.log("inside test.handlebars"); </script>
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+      <nav class="tab-bar">
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        </section>
+
+        <section class="middle tab-bar-section">
+          <h1 class="title">Map Thingy Tool for Team Wade Castillo</h1>
+        </section>
+        
+        <section class="right-small">
+          <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        </section>
+      </nav> 
+
+      <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label><h5>Filter Options</h5></label></li>
+        <form>
+        <li class="has-submenu"><a href="#">Education Level</a>
+
+          <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+            <li><label>Education Level</label></li>
+            <li><a href="#"><input type="checkbox" name="education-level" value="Nusery/Preschool"> Nursery/Preschool</a></li>
+            <li><a href="#"><input type="checkbox" name="education-level" value="Kindergarten-Grade4"> Kindergarten to Grade 4</a></li>
+            <li><a href="#"><input type="checkbox" name="education-level" value="Grade5-Grade8"> Grade 5 to Grade 8</a></li>
+            <li><a href="#"><input type="checkbox" name="education-level" value="Grade9-Grade12"> Grade 9 to Grade 12</a></li>
+            <li><a href="#"><input type="checkbox" name="education-level" value="CollegeGraduate"> College Graduate</a></li>
+            <li><a href="#"><input type="checkbox" name="education-level" value="GraduateOrProfessionalSchool"> Graduate or Professional School</a></li>
+            <li><a href="#"><input type="checkbox" name="education-level" value="NotEnrolled"> Not Enrolled in School</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu"><a href="#">Occupational Industry</a>
+            <ul class="left-submenu">
+                <li class="back"><a href="#">Back</a></li>
+                <li><label>Occupational Industry</label></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="AgricultureForestryMining"> Agriculture, Forestry, Mining</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="Utilities"> Utilities</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="Construction"> Construction</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="Manufacturing"> Manufacturing</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="WholesaleTrade"> Wholesale Trade</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="RetailTrade"> Retail Trade</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="TransportationWarehousingUtilities"> Transportation, Warehousing, Utilities</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="InformationCommunications"> Information and Communications</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="FinanceInsuranceRealEstate"> Finance, Insurance, Real Estate</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="ProfessionalScientificManagementAdministrative"> Professional, Scientific, Management, Administrative</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="EducationalHealthSocialServices"> Educational, Health, Social Services</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="ArtsEntertainmentRecreationAccomodationsFoodServices"> Arts, Entertainment, Recreation, Accomodations, Food Services</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="OtherServices"> Other Services</a></li>
+                <li><a href="#"><input type="checkbox" name="occupational-industry" value="PublicAdministration"> Public Administration</a></li>
+            </ul>
+        </li>
+        <li class="has-submenu"><a href="#">Marital Status</a>
+          <ul class="left-submenu">
+            <li class="back"><a href="#">Back</a></li>
+            <li><label>Marital Status</label></li>
+            <li><a href="#"><input type="radio" name="marital-status" value="Single"> Single</a></li>
+            <li><a href="#"><input type="radio" name="marital-status" value="Married"> Married</a></li>
+            <li><a href="#"><input type="radio" name="marital-status" value="Seperate"> Seperated</a></li>
+            <li><a href="#"><input type="radio" name="marital-status" value="Widowed"> Widowed</a></li>
+            <li><a href="#"><input type="radio" name="marital-status" value="Divorced"> Divorced</a></li>
+          </ul>
+        </li>
+        </form>
+      </ul>
+      </aside>
+      
+      <!-- Secondary sidebar -->
+      <aside class="right-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <!--This is where the counties would go, new li for each one-->
+          <li><label><h5>Regions</h5></label></li>
+          <li><a href="#">Carlsbad</a></li>
+          <li><a href="#">Oceanside</a></li>
+          <li><a href="#">Vista</a></li>
+          <li><a href="#">Del Mar</a></li>
+          <li><a href="#">Kearny Mesa</a></li>
+          <li><a href="#">Miramar</a></li>
+          <li><a href="#">Mid City</a></li>
+          <li><a href="#">Chula Vista</a></li>
+          <li><a href="#">Coronado</a></li>
+          <li><a href="#">National City</a></li>
+          <li><a href="#">Alpine</a></li>
+          <li><a href="#">El Cajon</a></li>
+          <li><a href="#">Jamul</a></li>
+          <li><a href="#">La Mesa</a></li>
+          <li><a href="#">Laguna-Pine Valley</a></li>
+          <li><a href="#">Lakeside</a></li>
+          <li><a href="#">Lemon Grove</a></li>
+          <li><a href="#">Santee</a></li>
+          <li><a href="#">Spring Valley</a></li>
+          <li><a href="#">Escondido</a></li>
+          <li><a href="#">Fallbrook</a></li>
+          <li><a href="#">North San Diego</a></li>
+          <li><a href="#">Palmomar-Julian</a></li>
+          <li><a href="#">Poway</a></li>
+          <li><a href="#">Ramona</a></li>
+          <li><a href="#">San Marcos</a></li>
+          <li><a href="#">Valley Center</a></li>
+          <li><a href="#">University City</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </aside>
+
+      <section class="main-section">
+        <!-- content goes here -->
+        <div class="row">
+          <div class="small-12 columns map_section">
+            <!--This is where the map will go-->
+          </div>
+        </div>
+      </section>
+
+      <a class="exit-off-canvas"></a>
+
+    </div>
+  </div>
+
+  
+
+</body>
