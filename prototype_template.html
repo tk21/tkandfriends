@@ -181,9 +181,9 @@
               <h5>Regions</h5>
             </label>
           </li>
-          <li><a href="#">Carlsbad</a>
+          <li id="carlsbadList"><a href="#">Carlsbad</a>
           </li>
-          <li><a href="#">Oceanside</a>
+          <li id="oceansideList"><a href="#">Oceanside</a>
           </li>
           <li><a href="#">Vista</a>
           </li>
@@ -294,7 +294,49 @@
   <script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>
   <script src="./js/foundation.min.js"></script>
   <script src="./js/jquery.imagemapster.js"></script>
-  
+
+  <script>
+    var count = 1;
+
+    $('#carlsbadList').click( function() {
+      count++;
+      if(count % 2 === 0 ) {
+      $('#mappie').mapster({
+        mapKey : 'id',
+        singleSelect: false,
+        fill : true,
+        altImage: "ColoredRegionsAll.jpg",
+        fillOpacity : 1,
+        
+        areas : [
+          {
+            key: 'northSanDiego',
+            selected: true,
+          },
+        ]
+      });
+    }
+    else {
+      $('#mappie').mapster({
+        mapKey : 'id',
+        singleSelect: false,
+        fill : true,
+        altImage: "ColoredRegionsAll.jpg",
+        fillOpacity : 1,
+        
+        areas : [
+          {
+            key: 'northSanDiego',
+            selected: false,
+          },
+        ]
+      });
+    }
+  });
+
+ 
+ 
+  </script>  
 
   <script>
     $(document).foundation();
