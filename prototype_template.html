@@ -174,7 +174,7 @@
 
       <!--Secondary sidebar-->
       <aside class="right-off-canvas-menu">
-        <ul class="off-canvas-list">
+        <ul class="off-canvas-list" id="regionList">
           <!--This is where the counties would go, new li for each one-->
           <li>
             <label>
@@ -296,42 +296,57 @@
   <script src="./js/jquery.imagemapster.js"></script>
 
   <script>
-    var count = 1;
-
-    $('#carlsbadList').click( function() {
-      count++;
-      if(count % 2 === 0 ) {
-      $('#mappie').mapster({
+     $('#mappie').mapster({
         mapKey : 'id',
         singleSelect: false,
         fill : true,
         altImage: "ColoredRegionsAll.jpg",
-        fillOpacity : 1,
-        
-        areas : [
-          {
-            key: 'northSanDiego',
-            selected: true,
-          },
-        ]
+        fillOpacity : .5
       });
-    }
-    else {
-      $('#mappie').mapster({
-        mapKey : 'id',
-        singleSelect: false,
-        fill : true,
-        altImage: "ColoredRegionsAll.jpg",
-        fillOpacity : 1,
-        
-        areas : [
-          {
-            key: 'northSanDiego',
-            selected: false,
-          },
-        ]
-      });
-    }
+    $('#regionList li').click( function() {
+      var region = $(this).attr('id').replace('List','');
+      region = '#' + region;
+      //This is where the the background color is set
+      //TODO make this toggle
+      $( this ).css( "background-color", "skyblue" );      
+      //Modular means of setting regions via list
+      //THIS ALREADY TOGGLES
+      $(region).mapster('set');
+      
+//    Rachels code
+//      count++;
+//      if(count % 2 === 0 ) {
+//      $('#mappie').mapster({
+//        mapKey : 'id',
+//        singleSelect: false,
+//        fill : true,
+//        altImage: "ColoredRegionsAll.jpg",
+//        fillOpacity : 1,
+//        
+//        areas : [
+//          {
+//            key: 'northSanDiego',
+//            selected: true,
+//          },
+//        ]
+//      });
+//    }
+//    else {
+//      $('#mappie').mapster({
+//        mapKey : 'id',
+//        singleSelect: false,
+//        fill : true,
+//        altImage: "ColoredRegionsAll.jpg",
+//        fillOpacity : 1,
+//        
+//        areas : [
+//          {
+//            key: 'northSanDiego',
+//            selected: false,
+//          },
+//        ]
+//      });
+//    }
   });
 
  
