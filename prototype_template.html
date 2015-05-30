@@ -185,57 +185,57 @@
           </li>
           <li id="oceansideList"><a href="#">Oceanside</a>
           </li>
-          <li><a href="#">Vista</a>
+          <li id="vistaList"><a href="#">Vista</a>
           </li>
-          <li><a href="#">Del Mar</a>
+          <li id="delMarList"><a href="#">Del Mar</a>
           </li>
-          <li><a href="#">Kearny Mesa</a>
+          <li id="kearnyMesaList"><a href="#">Kearny Mesa</a>
           </li>
-          <li><a href="#">Miramar</a>
+          <li id="miramarList"><a href="#">Miramar</a>
           </li>
-          <li><a href="#">Mid City</a>
+          <li id="midCityList"><a href="#">Mid City</a>
           </li>
-          <li><a href="#">Chula Vista</a>
+          <li id="chulaVistaList"><a href="#">Chula Vista</a>
           </li>
-          <li><a href="#">Coronado</a>
+          <li id="coronadoList"><a href="#">Coronado</a>
           </li>
-          <li><a href="#">National City</a>
+          <li id="nationalCityList"><a href="#">National City</a>
           </li>
-          <li><a href="#">Alpine</a>
+          <li id="alpineList"><a href="#">Alpine</a>
           </li>
-          <li><a href="#">El Cajon</a>
+          <li id="elCajonList"><a href="#">El Cajon</a>
           </li>
-          <li><a href="#">Jamul</a>
+          <li id="jamulList"><a href="#">Jamul</a>
           </li>
-          <li><a href="#">La Mesa</a>
+          <li id="laMesaList"><a href="#">La Mesa</a>
           </li>
-          <li><a href="#">Laguna-Pine Valley</a>
+          <li id="lagunaPineValleyList"><a href="#">Laguna-Pine Valley</a>
           </li>
-          <li><a href="#">Lakeside</a>
+          <li id="lakesideList"><a href="#">Lakeside</a>
           </li>
-          <li><a href="#">Lemon Grove</a>
+          <li id="lemonGroveList"><a href="#">Lemon Grove</a>
           </li>
-          <li><a href="#">Santee</a>
+          <li id="santeeList"><a href="#">Santee</a>
           </li>
-          <li><a href="#">Spring Valley</a>
+          <li id="springValleyList"><a href="#">Spring Valley</a>
           </li>
-          <li><a href="#">Escondido</a>
+          <li id="escondidoList"><a href="#">Escondido</a>
           </li>
-          <li><a href="#">Fallbrook</a>
+          <li id="fallbrookList"><a href="#">Fallbrook</a>
           </li>
-          <li><a href="#">North San Diego</a>
+          <li id="northSanDiegoList"><a href="#">North San Diego</a>
           </li>
-          <li><a href="#">Palmomar-Julian</a>
+          <li id="palomarJulianList"><a href="#">Palmomar-Julian</a>
           </li>
-          <li><a href="#">Poway</a>
+          <li id="powayList"><a href="#">Poway</a>
           </li>
-          <li><a href="#">Ramona</a>
+          <li id="ramonaList"><a href="#">Ramona</a>
           </li>
-          <li><a href="#">San Marcos</a>
+          <li id="sanMarcosList"><a href="#">San Marcos</a>
           </li>
-          <li><a href="#">Valley Center</a>
+          <li id="valleyCenterList"><a href="#">Valley Center</a>
           </li>
-          <li><a href="#">University City</a>
+          <li id="universityCityList"><a href="#">University City</a>
           </li>
           <li>
             <a href="#"></a>
@@ -296,64 +296,6 @@
   <script src="./js/jquery.imagemapster.js"></script>
 
   <script>
-     $('#mappie').mapster({
-        mapKey : 'id',
-        singleSelect: false,
-        fill : true,
-        altImage: "ColoredRegionsAll.jpg",
-        fillOpacity : .5
-      });
-    $('#regionList li').click( function() {
-      var region = $(this).attr('id').replace('List','');
-      region = '#' + region;
-      //This is where the the background color is set
-      //TODO make this toggle
-      $( this ).css( "background-color", "skyblue" );      
-      //Modular means of setting regions via list
-      //THIS ALREADY TOGGLES
-      $(region).mapster('set');
-      
-//    Rachels code
-//      count++;
-//      if(count % 2 === 0 ) {
-//      $('#mappie').mapster({
-//        mapKey : 'id',
-//        singleSelect: false,
-//        fill : true,
-//        altImage: "ColoredRegionsAll.jpg",
-//        fillOpacity : 1,
-//        
-//        areas : [
-//          {
-//            key: 'northSanDiego',
-//            selected: true,
-//          },
-//        ]
-//      });
-//    }
-//    else {
-//      $('#mappie').mapster({
-//        mapKey : 'id',
-//        singleSelect: false,
-//        fill : true,
-//        altImage: "ColoredRegionsAll.jpg",
-//        fillOpacity : 1,
-//        
-//        areas : [
-//          {
-//            key: 'northSanDiego',
-//            selected: false,
-//          },
-//        ]
-//      });
-//    }
-  });
-
- 
- 
-  </script>  
-
-  <script>
     $(document).foundation();
     $(document).ready(function () {
       $('#mappie').mapster({
@@ -363,6 +305,27 @@
         fillOpacity: 1,
       });
     });
+  </script>
+
+  <script>
+    $('#regionList li').click( function() {
+      var region = $(this).attr('id').replace('List','');
+      region = '#' + region;
+      //This is where the the background color is set
+$('#mappie').mapster({
+        mapKey : 'id',
+        singleSelect: false,
+        fill : true,
+        altImage: "ColoredRegionsAll.jpg",
+        fillOpacity : 1
+      });
+      
+      //TODO make this toggle
+      $( this ).css( "background-color", "skyblue" );      
+      //Modular means of setting regions via list
+      //THIS ALREADY TOGGLES
+      $(region).mapster('set');
+  });
   </script>
 </body>
 
