@@ -295,65 +295,7 @@
   <script src="./js/foundation.min.js"></script>
   <script src="./js/jquery.imagemapster.js"></script>
 
-  <script>
-     $('#mappie').mapster({
-        mapKey : 'id',
-        singleSelect: false,
-        fill : true,
-        altImage: "ColoredRegionsAll.jpg",
-        fillOpacity : .5
-      });
-    $('#regionList li').click( function() {
-      var region = $(this).attr('id').replace('List','');
-      region = '#' + region;
-      //This is where the the background color is set
-      //TODO make this toggle
-      $( this ).css( "background-color", "skyblue" );      
-      //Modular means of setting regions via list
-      //THIS ALREADY TOGGLES
-      $(region).mapster('set');
-      
-//    Rachels code
-//      count++;
-//      if(count % 2 === 0 ) {
-//      $('#mappie').mapster({
-//        mapKey : 'id',
-//        singleSelect: false,
-//        fill : true,
-//        altImage: "ColoredRegionsAll.jpg",
-//        fillOpacity : 1,
-//        
-//        areas : [
-//          {
-//            key: 'northSanDiego',
-//            selected: true,
-//          },
-//        ]
-//      });
-//    }
-//    else {
-//      $('#mappie').mapster({
-//        mapKey : 'id',
-//        singleSelect: false,
-//        fill : true,
-//        altImage: "ColoredRegionsAll.jpg",
-//        fillOpacity : 1,
-//        
-//        areas : [
-//          {
-//            key: 'northSanDiego',
-//            selected: false,
-//          },
-//        ]
-//      });
-//    }
-  });
-
- 
- 
-  </script>  
-
-  <script>
+ <script>
     $(document).foundation();
     $(document).ready(function () {
       $('#mappie').mapster({
@@ -363,7 +305,19 @@
         fillOpacity: 1,
       });
     });
-  </script>
+  
+    $('#regionList li').click( function() {
+      var region = $(this).attr('id').replace('List','');
+      region = '#' + region;
+      //This is where the the background color is set
+      //TODO make this toggle
+      $( this ).css( "background-color", "skyblue" );      
+      //Modular means of setting regions via list
+      //THIS ALREADY TOGGLES
+      $(region).mapster('set');
+    });
+
+  </script> 
 </body>
 
 </html>
