@@ -296,16 +296,13 @@
   <script src="./js/jquery.imagemapster.js"></script>
 
   <script>
-    $(document).foundation();
-    $(document).ready(function () {
-      $('#mappie').mapster({
+     $('#mappie').mapster({
+        mapKey : 'id',
         singleSelect: false,
-        fill: true,
+        fill : true,
         altImage: "ColoredRegionsAll.jpg",
-        fillOpacity: 1,
+        fillOpacity : .5
       });
-    });
-  
     $('#regionList li').click( function() {
       var region = $(this).attr('id').replace('List','');
       region = '#' + region;
@@ -315,7 +312,7 @@
       //Modular means of setting regions via list
       //THIS ALREADY TOGGLES
       $(region).mapster('set');
-    });
+      
 //    Rachels code
 //      count++;
 //      if(count % 2 === 0 ) {
@@ -350,8 +347,23 @@
 //        ]
 //      });
 //    }
-// });
+  });
+
+ 
+ 
   </script>  
+
+  <script>
+    $(document).foundation();
+    $(document).ready(function () {
+      $('#mappie').mapster({
+        singleSelect: false,
+        fill: true,
+        altImage: "ColoredRegionsAll.jpg",
+        fillOpacity: 1,
+      });
+    });
+  </script>
 </body>
 
 </html>
