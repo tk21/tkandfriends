@@ -4,6 +4,19 @@ $(document).ready(function () {
     fill: true,
     altImage: "../img/ColoredRegionsAll.jpg",
     fillOpacity: 1,
+    mapKey : 'id',
+    onClick: function (e) {
+      var region = e.key + "List"
+      console.log(region)
+      var listColor = $('#' + region).css("background-color");
+      console.log(listColor);
+      if($('#' + region).hasClass('active')){
+        console.log('here');
+        $('#' + region).removeClass('active');
+      }else{
+        $('#' + region).addClass('active');
+      }
+    }
   });
 
   $('#regionList li').click(function () {
