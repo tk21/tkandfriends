@@ -13,7 +13,7 @@ var DelphiDemo = DelphiDemo || (function() {
   //   });
 
   // Reads in user input on forms to build the query string to be sent to database
-  self.buildQuery = function() {
+  /**self.buildQuery = function() {
     console.log("INDEXJS: building query with strings----------------");
 
     var q = "SELECT * ";
@@ -49,7 +49,7 @@ var DelphiDemo = DelphiDemo || (function() {
     console.log(q);
 
     return "query finished building";
-  };
+  }; **/
 
   // Takes query string and passes it into the database to be processed
   self.getDelphiData = function() {
