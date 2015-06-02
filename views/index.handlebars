@@ -65,12 +65,18 @@
           </ul>
         </li>
         </form>
+        <li>
+          <br />
+          <center>
+            <button id="pull-data" onclick="DelphiDemo.init()">FILTER PLZ</button>
+          </center>
+        </li>
       </ul>
       </aside>
       
       <!-- Secondary sidebar -->
       <aside class="right-off-canvas-menu">
-        <ul class="off-canvas-list">
+        <ul class="off-canvas-list" id="regionList">
           <!--This is where the counties would go, new li for each one-->
           <li><label><h5>Regions</h5></label></li>
           <li id="carlsbadList"><a href="#">Carlsbad</a></li>
@@ -108,8 +114,7 @@
       <section class="main-section">
         <!-- content goes here -->
         <!-- THIS IS TEMPORARY FOR TESTING RIGHT NOW... -->
-        <button id="pull-data" onclick="DelphiDemo.init()">FILTER PLZ</button>
-        <div class="row">
+        <div class="row fullPageRow">
           <div class="small-12 columns map_section">
             <!--This is where the map will go-->
             <div id="image">

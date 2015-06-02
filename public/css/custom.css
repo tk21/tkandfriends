@@ -6,9 +6,15 @@
 .map_section{
   height: 100%; 
 }
+/*
 .main-section{
   background-image: url(../img/Fakemap.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+*/
+.fullPageRow{
+  width:100%;
+  max-width: none !important;
 }
