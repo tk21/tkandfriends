@@ -1,21 +1,23 @@
-<iframe>
-  <div class="row">
-    <div class="small-12 columns">
-      <h1>This should be a title</h1>
-    </div>
+<head>
+  <script src="c3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+
+
+<div class="row">
+  <div class="small-12 columns">
+    <h1>This should be a title</h1>
   </div>
-  <div class="row">
-    <div class="small-4 columns" id="buttonArea">
-      aidjflakjdg;lakdjga;lkdfj;lgfakdjf;alksdjfa;lskdfja
-      <br>
-      ;akdjf;alkjdf;alkdjfadf
-      <br>;lakdjf;lakdjf;lakdsjf;alkdsjf
-    </div>
-    <div class="small-8 columns" id="chart">
-      aidjflakjdg;lakdjga;lkdfj;lgfakdjf;alksdjfa;lskdfja
-      <br>
-      ;akdjf;alkjdf;alkdjfadf
-      <br>;lakdjf;lakdjf;lakdsjf;alkdsjf
-    </div>
+</div>
+<div class="row">
+  <div class="small-4 columns" id="buttonArea">
+    [[button area]]
+   
   </div>
-</iframe>
+  <div class="small-8 columns" id="chart">
+    [[chart area]]
+    <!-- wE MAY HAVE TO CHANGE THE PATH OF BARS.JS BECAUSE JUSTIFRAME SHOULDN'T
+    BE IN THE JS FOLDER-->
+    <div id="chart"><script src="bars.js"></script></div>
+  </div>
+</div>
