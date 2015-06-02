@@ -11,8 +11,11 @@ $(document).ready(function () {
     var region = $(this).attr('id').replace('List', '');
     region = '#' + region;
     //This is where the the background color is set
-    //TODO make this toggle
-    $(this).css("background-color", "skyblue");
+    if($(this).hasClass('active')){
+      $(this).removeClass('active');
+    }else{
+      $(this).addClass('active');
+    }
     //Modular means of setting regions via list
     //THIS ALREADY TOGGLES
     $(region).mapster('set');

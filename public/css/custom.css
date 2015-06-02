@@ -17,4 +17,8 @@
 .fullPageRow{
   width:100%;
   max-width: none !important;
+  height:95%;
+}
+.active{
+  background-color: skyblue;
 }
