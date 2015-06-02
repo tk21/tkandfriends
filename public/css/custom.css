@@ -22,3 +22,9 @@
 .active{
   background-color: skyblue;
 }
+#visualize{
+  position: fixed;
+  z-index: 1;
+  top:10%;
+  left:80%;
+}
