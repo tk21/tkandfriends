@@ -80,8 +80,3 @@ var DelphiData = DelphiData || (function() {
   };
   return self;
 })();
-
-
-// $(document).ready(function() {
-//   console.log("");
-// });

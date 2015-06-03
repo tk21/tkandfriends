@@ -1,30 +1,10 @@
 console.log("INSIDE bars.js---------------------------------------");
-console.log("parent document filterse and categories:");
+console.log("FILTERS | CATEGORY | REGION selected:");
 console.log(parent.document.filters);
-console.log(parent.document.categories);
+console.log(parent.document.category);
+console.log(parent.document.region);
 
 (function() {
-
-  /**$.getJSON('/delphidata')
-    .done(function(data) {
-      console.log("trying to load chart");
-      if (data.length<=0) {
-        console.log("Sorry, unable to pull data.");
-      }
-      console.log("inside bars.js");
-      var chart = c3.generate({
-        bindto: '#chart',
-        data: {
-          columns: [
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 130, 100, 140, 200, 150, 50]
-          ],
-          type: 'bar'
-        }
-      });
-    }); **/
-
-
   $.ajax({
     url: "/delphidata",
 
@@ -36,8 +16,28 @@ console.log(parent.document.categories);
       console.log("We were able to successfully access delphi data:");
       console.log(data);
 
+      var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+          columns: [
+            //['data1', 30, 200, 100, 400, 150, 250],
+            //['data2', 130, 100, 140, 200, 150, 50]
+          ],
+          type: 'bar'
+        },
+        axis: {
+          x: {
+          type: 'category',
+          }
+        },
+        bar: {
+          width: {
+            ratio: 0.5
+          }
+        }
+      });
 
-
+/** KEEP THIS FOR DEMO D3 VISUALIZATION BUT WE DON'T WANT THIS!!!!!
         var width = 960,
         height = 500;
 
@@ -84,32 +84,10 @@ console.log(parent.document.categories);
             node.attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; });
           });
-        });  
+        });   **/
 
-      /**$.getJSON(data).done(function(data) {
-        console.log("Success, getting data as JSON"); 
 
-          /**var chart = c3.generate({
-            bindto: '#chart',
-            data: {
-              columns: [
-                ['data1', 30, 200, 100, 400, 150, 250],
-                ['data2', 130, 100, 140, 200, 150, 50]
-              ],
-              type: 'bar'
-            },
-            axis: {
-              x: {
-              type: 'category',
-              }
-            },
-            bar: {
-              width: {
-                ratio: 0.5
-              }
-            }
-          });
-      // }); **/
+          
     },
 
     error: function() {
