@@ -40,7 +40,14 @@
         </div>
       </nav>
       <!--End Side Nav-->
-
+      
+      <!--Visualization Button-->
+      <button type="button" id="visualize_button" class="btn btn-default btn-lg">Visualize Comparison</button>
+      
+      <div id="hover_info">
+        
+      </div>
+      
       <!--List-->
       <div class=" col-sm-2 pull-right container-fluid " id="region_list_area ">
 
@@ -52,7 +59,6 @@
       </div>
     </div>
   </div>
-  <!--End Side Nav-->
   <script src="http://code.jquery.com/jquery-2.1.4.min.js "></script>
   <script src="http://code.jquery.com/jquery-migrate-1.0.0.js "></script>
   <script type="text/javascript " src="js/index.js "></script>
@@ -62,7 +68,7 @@
   <script src="js/mapinteraction.js "></script>
   <script src="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.js " type="text/javascript " charset="utf-8 "></script>
   <script>
-    $('#visualize').featherlight({
+    $('#visualize_button').featherlight({
       iframe: 'js/justiframe.html',
       iframeWidth: '100%',
       iframeHeight: '100%'

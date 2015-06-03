@@ -1,53 +1,40 @@
-/*All the old shit, will delete later*/
-
-.sidebar-form {
-  margin: 2%;
-  width: 95%;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.map_section {
-  height: 100%;
-}
-/*
-.main-section{
-  background-image: url(../img/Fakemap.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-*/
-
-.fullPageRow {
-  width: 100%;
-  max-width: none !important;
-  height: 95%;
-}
-
-.active {
-  background-color: skyblue;
-}
-
-#visualize {
-  position: fixed;
-  z-index: 1;
-  top: 10%;
-  left: 80%;
-}
-
 .featherlight-content {
   width: 80%;
 }
-/*Old shit end*/
-/*All Overlay Nav [sidebar and region list button]*/
+
+/*OVERLAY NAV STYLING*/
+
+
+/*For all floating nav items*/
+#side_nav,
+#region_list_area,
+#visualize_button,
+#hover_info{
+  z-index: 1;
+  position: absolute;
+}
 
 #side_nav,
 #region_list_area {
-  z-index: 999;
-  position: absolute;
   top: 0;
   left: 0;
 }
+
+#visualize_button{
+  top: 5%;
+  left: 20%;
+  background-color: rgba(255,255,255,.7);
+}
+
+#hover_info{
+  height:20%;
+  width:20%;
+  top:70%;
+  left:30%;
+  background-color: rgba(0,0,0,.2);
+  /*border-radius: 5px;*/
+}
+
 /*Sidebar Styling*/
 
 #side_nav {
@@ -63,13 +50,13 @@
   text-align: center;
   /*border: black solid;*/
 }
-/*Button Title Styling*/
 
+/*Huge Nav Button Title Styling*/
 .button_title {
   color: floralwhite;
 }
-/*Education Button Styling*/
 
+/*Education Button Styling*/
 #education_button {
   background-color: rgba(0, 255, 255, .7);
 }
@@ -77,8 +64,8 @@
 #education_button:hover {
   background-color: rgba(0, 255, 255, 1);
 }
-/*Occupation Button Styling*/
 
+/*Occupation Button Styling*/
 #occupation_button {
   background-color: rgba(178, 34, 34, .7);
 }
@@ -86,8 +73,8 @@
 #occupation_button:hover {
   background-color: rgba(178, 34, 34, 1);
 }
-/*Marital Button Styling*/
 
+/*Marital Button Styling*/
 #marital_status_button {
   background-color: rgba(50, 205, 50, .7);
 }
@@ -95,16 +82,19 @@
 #marital_status_button:hover {
   background-color: rgba(50, 205, 50, 1);
 }
+
 /*Regional List Button Styling*/
-
 #region_list_area {}
-/*Body Styling*/
 
+/*END NAV OVERLAY STYLING*/
+
+
+/*Body Styling*/
 .body {
   height: 100%;
   padding: 0;
   /*THIS IS WHERE WE SET THE COLOR, PROLLY IN JQUERY*/
-  background-color: auto;
+  background-color: teal;
 }
 /*Map Styling*/
 
