@@ -19,17 +19,6 @@ $(document).ready(function () {
     }
   });
   
-  $('map area').click(function(){
-      var regionOnList = $(this).attr('id');
-      regionOnList = '#' + regionOnList + 'List';
-    
-      if($(regionOnList).hasClass('active')){
-        $(regionOnList).removeClass('active');
-      }else{
-        $(regionOnList).addClass('active');
-      }
-    });
-
   $('#regionList li').click(function () {
     //console.log('List Clicked');
     var region = $(this).attr('id').replace('List', '');
