@@ -1,10 +1,13 @@
-.sidebar-form{
-  margin:2%; 
-  width:95%;
-  color:rgba(255, 255, 255, 0.7);
+/*All the old shit, will delete later*/
+
+.sidebar-form {
+  margin: 2%;
+  width: 95%;
+  color: rgba(255, 255, 255, 0.7);
 }
-.map_section{
-  height: 100%; 
+
+.map_section {
+  height: 100%;
 }
 /*
 .main-section{
@@ -14,20 +17,90 @@
   background-position: center;
 }
 */
-.fullPageRow{
-  width:100%;
+
+.fullPageRow {
+  width: 100%;
   max-width: none !important;
-  height:95%;
+  height: 95%;
 }
-.active{
+
+.active {
   background-color: skyblue;
 }
-#visualize{
+
+#visualize {
   position: fixed;
   z-index: 1;
-  top:10%;
-  left:80%;
+  top: 10%;
+  left: 80%;
 }
-.featherlight-content{
-  width:80%;
+
+.featherlight-content {
+  width: 80%;
+}
+/*Old shit end*/
+/*All Overlay Nav [sidebar and region list button]*/
+
+#side_nav,
+#region_list_area {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/*Sidebar Styling*/
+
+#side_nav {
+  height: 100%;
+  background-color: white;
+}
+
+#education_button,
+#occupation_button,
+#marital_status_button {
+  height: 33.3%;
+  padding-top: 40%;
+  text-align: center;
+  /*border: black solid;*/
+}
+/*Button Title Styling*/
+
+.button_title {
+  color: floralwhite;
+}
+/*Education Button Styling*/
+
+#education_button {
+  background-color: rgba(0, 255, 255, .7);
+}
+
+#education_button:hover {
+  background-color: rgba(0, 255, 255, 1);
+}
+/*Occupation Button Styling*/
+
+#occupation_button {
+  background-color: rgba(178, 34, 34, .7);
+}
+
+#occupation_button:hover {
+  background-color: rgba(178, 34, 34, 1);
+}
+/*Marital Button Styling*/
+
+#marital_status_button {
+  background-color: rgba(50, 205, 50, .7);
+}
+
+#marital_status_button:hover {
+  background-color: rgba(50, 205, 50, 1);
+}
+/*Regional List Button Styling*/
+
+#region_list_area {}
+/*Body Styling*/
+
+.body {
+  background-color: black;
+  height: 100%;
 }

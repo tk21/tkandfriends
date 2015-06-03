@@ -17,16 +17,22 @@ dotenv.load();
 var conString = process.env.DATABASE_CONNECTION_URL;
 
 //configures the Template engine
-app.engine('handlebars', handlebars({defaultLayout: 'layout'}));
+app.engine('handlebars', handlebars({
+  defaultLayout: 'layout'
+}));
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(session({ secret: 'keyboard cat',
-                  saveUninitialized: true,
-                  resave: true}));
+app.use(session({
+  secret: 'keyboard cat',
+  saveUninitialized: true,
+  resave: true
+}));
 
 //set environment ports and start application
 app.set('port', process.env.PORT || 3000);
@@ -69,20 +75,20 @@ app.get('/delphidata', function (req, res) {
 
   //FROM....... (database)
   switch (req.query.c) {
-    case "Industry":
-      query += industry + ' ';
-      query += 'WHERE "Industry" = \'';
-      break;
+  case "Industry":
+    query += industry + ' ';
+    query += 'WHERE "Industry" = \'';
+    break;
 
-    case "Education":
-      query += education + ' ';
-      query += 'WHERE "Education" = \'';
-      break;
+  case "Education":
+    query += education + ' ';
+    query += 'WHERE "Education" = \'';
+    break;
 
-    case "Mar_status":
-      query += mar_status + ' ';
-      query += 'WHERE "Mar_status" = \'';
-      break;
+  case "Mar_status":
+    query += mar_status + ' ';
+    query += 'WHERE "Mar_status" = \'';
+    break;
   }
 
   //WHERE....... (filters)
@@ -92,21 +98,23 @@ app.get('/delphidata', function (req, res) {
   console.log(query);
 
   // initialize connection pool, perform query
-  pg.connect(conString, function(err, client, done) {
-    if(err) return console.log(err);
-    
+  pg.connect(conString, function (err, client, done) {
+    if (err) return console.log(err);
+
     console.log("DELPHI DATA-----------------------------------------------------\n");
 
-    client.query(query, function(err, result) {
+    client.query(query, function (err, result) {
       // return the client to the connection pool for other requests to reuse
       done();
 
-      res.writeHead("200", {'content-type': 'application/json'});
+      res.writeHead("200", {
+        'content-type': 'application/json'
+      });
       res.end(JSON.stringify(result.rows));
     });
-  }); 
+  });
 });
 
-http.createServer(app).listen(app.get('port'), function() {
-    console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+  console.log('Express server listening on port ' + app.get('port'));
 });

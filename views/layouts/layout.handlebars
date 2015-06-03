@@ -4,27 +4,69 @@
 
 <head>
   <!-- GLOBAL var that tells which database to query, sends to lightbox -->
-  <script>var filters = ""; var category = ""; var regions = "";</script>
+  <script>
+    var filters = "";
+    var category = "";
+    var regions = "";
+  </script>
 
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/custom.css" />
-  <link href="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.css" 
-        type="text/css" rel="stylesheet" title="Featherlight Styles" />
+  <link href="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.css" type="text/css" rel="stylesheet" title="Featherlight Styles" />
 </head>
 
 <body>
-  
-  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.imagemapster.js"></script>
-  <script src="js/mapinteraction.js"></script>
-  <script src="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!--Persistent Nav Items-->
+      <!--Side Nav-->
+      <div class="col-sm-2 pull-left container-fluid" id="side_nav">
+        <div class="row">
+          <div class="col-sm-12" id="education_button">
+            <h1 class="button_title">Education</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" id="occupation_button">
+            <h1 class="button_title">Occupation</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" id="marital_status_button">
+            <h1 class="button_title">Marital Status</h1>
+          </div>
+        </div>
+      </div>
+      <!--End Side Nav-->
+
+      <!--List-->
+      <div class=" col-sm-2 pull-right container-fluid " id="region_list_area ">
+
+      </div>
+      <!--End List-->
+      <!--End Persistent Nav-->
+      <div class="col-sm-12 container-fluid body">
+        {{{body}}}
+      </div>
+    </div>
+  </div>
+  <!--End Side Nav-->
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js "></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.0.0.js "></script>
+  <script type="text/javascript " src="js/index.js "></script>
+  <script src="http://modernizr.com/downloads/modernizr-latest.js "></script>
+  <script src="js/bootstrap.min.js "></script>
+  <script src="js/jquery.imagemapster.js "></script>
+  <script src="js/mapinteraction.js "></script>
+  <script src="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.js " type="text/javascript " charset="utf-8 "></script>
   <script>
-    $('#visualize').featherlight({iframe: 'js/justiframe.html', iframeWidth: '100%', iframeHeight:'100%'});
+    $('#visualize').featherlight({
+      iframe: 'js/justiframe.html',
+      iframeWidth: '100%',
+      iframeHeight: '100%'
+    });
   </script>
 
 </body>
