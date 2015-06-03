@@ -53,13 +53,11 @@ app.get('/bars', function (req, res) {
 //retrieve data 
 app.get('/delphidata', function (req, res) {
   console.log("----------------------- APPJS: DELPHIDATA------------------");
-  console.log("THIS IS ONLY FILTERS OF QUERY:");
+  console.log("filters | category | region:");
   console.log(req.query.f);
-  console.log("THIS IS ONLY THE DATABASE OF QUERY:");
   console.log(req.query.c);
+  console.log(req.query.r);
 
-  var category = req.query.c;
-  var filters = req.query.f;
   //var filters = 'Nursery/Preschool';
   var education = 'hhsa_san_diego_demographics_education_2012_norm';
   var industry = 'hhsa_san_diego_demographics_occupat_industry_2012_norm';
@@ -75,24 +73,44 @@ app.get('/delphidata', function (req, res) {
 
   //FROM....... (database)
   switch (req.query.c) {
-  case "Industry":
-    query += industry + ' ';
-    query += 'WHERE "Industry" = \'';
-    break;
+    case "Industry":
+      query += industry + ' ';
+      break;
 
-  case "Education":
-    query += education + ' ';
-    query += 'WHERE "Education" = \'';
-    break;
+    case "Education":
+      query += education + ' ';
+      break;
 
-  case "Mar_status":
-    query += mar_status + ' ';
-    query += 'WHERE "Mar_status" = \'';
-    break;
+    case "Mar_status":
+      query += mar_status + ' ';
+      break;
   }
 
   //WHERE....... (filters)
-  query += filters + "\'";
+  if (req.query.f) {
+    switch (req.query.c) {
+      case "Industry":
+        query += 'WHERE "Industry" = \'';
+        break;
+      case "Education":
+        query += 'WHERE "Education" = \'';
+        break;
+      case "Mar_status":
+        query += 'WHERE "Marital Status" = \'';
+        break;
+    }
+    query += filters + "\'";
+  }
+
+  //IF Querying for specific REGION
+  if (req.query.r !== "") {
+    if (req.query.f) {
+      query += 'AND "Area"=\'' + req.query.r + '\'';
+    }
+    else
+      query += 'WHERE "Area"=\'' + req.query.r + '\'';
+  }
+  
 
   console.log("finalized query:");
   console.log(query);
@@ -102,7 +120,6 @@ app.get('/delphidata', function (req, res) {
     if (err) return console.log(err);
 
     console.log("DELPHI DATA-----------------------------------------------------\n");
-
     client.query(query, function (err, result) {
       // return the client to the connection pool for other requests to reuse
       done();

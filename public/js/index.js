@@ -20,28 +20,6 @@ var DelphiData = DelphiData || (function() {
     var filters = "";
     var cats = "";
 
-    //DATABASE----------------------------------------------------------------
-    //pull from EDUCATION database if checked 
-    $('input[name="education"]').each(function() {
-      if ($(this).is(":checked")) {
-        document.category = "Education";
-      }
-    });
-
-    //pull from INDUSTRY database if checked 
-    $('input[name="industry"]').each(function() {
-       if ($(this).is(":checked")) {
-        document.category = "Industry";
-      }
-    });
-
-    //pull from MARITAL STATUS database if checked 
-    $('input[name="marital_status"]').each(function() {
-      if ($(this).is(":checked")) {
-        document.category = "Marital_Status";
-      }
-    });
-
     //FILTERS-----------------------------------------------------------------
     console.log("these are the values you checked off:");
     $("input[type=checkbox]:checked").map(function() {
@@ -80,3 +58,19 @@ var DelphiData = DelphiData || (function() {
   };
   return self;
 })();
+
+
+//button listener for DB selection
+$("#side_nav .col-sm-12").click(function() {
+  console.log("CLICKED A DB BUTTON ");
+  if ($(this).attr('id') == "Marital_Status_Button") {
+    parent.document.category = "Marital Status";
+  }
+  else {
+    parent.document.category = $(this).attr('id').replace('_Button', '');
+  }
+  console.log(parent.document.category);
+
+}); 
+
+

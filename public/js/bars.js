@@ -8,9 +8,7 @@ console.log(parent.document.region);
   $.ajax({
     url: "/delphidata",
 
-    data: {f: 'Utilities', c: 'Industry'},
-    //{filters: parent.document.filters, 
-            //categories: parent.document.categories},
+    data: {f: parent.document.filters, c: parent.document.category r: parent.document.region},
 
     success: function(data) {
       console.log("We were able to successfully access delphi data:");
