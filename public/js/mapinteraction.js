@@ -1,10 +1,15 @@
 $(document).ready(function () {
+  
+//  $('#map').mapster('resize',auto,100%);
+  
   $('#map').mapster({
     singleSelect: false,
     fill: true,
     altImage: "../img/ColoredRegionsAll.jpg",
     fillOpacity: 1,
     mapKey : 'id',
+    scaleMap:true,
+    wrapClass:'pull-right',
     onClick: function (e) {
       var region = e.key + "List"
       console.log(region)

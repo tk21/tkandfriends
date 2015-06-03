@@ -104,10 +104,10 @@
   height: 100%;
   padding: 0;
   /*THIS IS WHERE WE SET THE COLOR, PROLLY IN JQUERY*/
-  background-color: blue;
+  background-color: auto;
 }
 /*Map Styling*/
 
-#map {
+#map{
   height: 100%;
 }
