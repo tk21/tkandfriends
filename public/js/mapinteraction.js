@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('#mappie').mapster({
+  $('#map').mapster({
     singleSelect: false,
     fill: true,
     altImage: "../img/ColoredRegionsAll.jpg",
