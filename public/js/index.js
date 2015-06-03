@@ -1,16 +1,16 @@
 var DelphiData = DelphiData || (function() {
   var self = {};
   // AJAX request to server to retrieve delphi data.
-  // self.getDelphiData = function() {
-  //   $.getJSON("/delphidata", function(data) {
+   /*self.getDelphiData = function() {
+     $.getJSON("/delphidata", function(data) {
 
-  //     var rows = $.map(data, function (item, i) {
-  //       console.log(item);
-  //       return "<tr><td>" + item.Area + "</td><td>" + item.Industry + "</td><td>" + item.Occupation + "</td></tr>";
-  //     }).join("");
+       var rows = $.map(data, function (item, i) {
+         console.log(item);
+         return "<tr><td>" + item.Area + "</td><td>" + item.Industry + "</td><td>" + item.Occupation + "</td></tr>";
+       }).join("");
 
-  //     $("#delphi-table").append(rows);
-  //   });
+       $("#delphi-table").append(rows);
+     });*/
 
 
   // Takes query string and passes it into the database to be processed
@@ -64,14 +64,14 @@ var DelphiData = DelphiData || (function() {
       }
     });
 
-    /**$.getJSON("/delphidata", function(data) {
-    //   // get data and process by row
-    //   var rows = $.map(data, function(item, i) {
-    //     console.log(item);
-    //   });
+    /*$.getJSON("/delphidata", function(data) {
+       // get data and process by row
+       var rows = $.map(data, function(item, i) {
+         console.log(item);
+       });
 
-    //   return data;
-    }); **/
+       return data;
+    });*/
   };
 
   // initialize

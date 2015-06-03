@@ -54,28 +54,34 @@ app.get('/delphidata', function (req, res) {
 
   var category = req.query.c;
   var filters = req.query.f;
-  var education = "hhsa_san_diego_demographics_education_2012_norm";
-  var industry = "hhsa_san_diego_demographics_occupat_industry_2012_norm";
-  var mar_status = "hhsa_san_diego_demographics_marital_status_2012_norm";
+  //var filters = 'Nursery/Preschool';
+  var education = 'hhsa_san_diego_demographics_education_2012_norm';
+  var industry = 'hhsa_san_diego_demographics_occupat_industry_2012_norm';
+  var mar_status = 'hhsa_san_diego_demographics_marital_status_2012_norm';
 
   //SELECT.....
-  var query = "SELECT * FROM ";
+  var query = 'SELECT * FROM ';
+  //query += education + ' ';
+  //query += 'WHERE "Education" = \'Nursery/preschool - Total enrollment (age 3 and older)\'';
+  //query += filters;
+  //ar query = 'SELECT * FROM ' + education;
+  //var query = 'SELECT * FROM hhsa_san_diego_demographics_education_2012_norm';
 
   //FROM....... (database)
   switch (req.query.c) {
     case "Industry":
-      query += industry + " ";
-      query += "WHERE \"Industry\"=\'";
+      query += industry + ' ';
+      query += 'WHERE "Industry" = \'';
       break;
 
     case "Education":
-      query += education + " ";
-      query += "WHERE \"Education\"=\'";
+      query += education + ' ';
+      query += 'WHERE "Education" = \'';
       break;
 
     case "Mar_status":
-      query += mar_status + " ";
-      query += "WHERE \"Marital Status\"=\'";
+      query += mar_status + ' ';
+      query += 'WHERE "Mar_status" = \'';
       break;
   }
 
