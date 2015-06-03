@@ -101,6 +101,12 @@
 /*Body Styling*/
 
 .body {
-  background-color: black;
   height: 100%;
+  padding: 0;
+}
+/*Map Styling*/
+
+#map {
+  height: 100%;
+  background-color: rgba(255, 255, 255, .3);
 }
