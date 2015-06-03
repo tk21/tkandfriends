@@ -49,10 +49,10 @@ app.get('/delphidata', function (req, res) {
   console.log("----------------------- APPJS: DELPHIDATA------------------");
   console.log("THIS IS ONLY FILTERS OF QUERY:");
   console.log(req.query.f);
-  console.log("THIS IS ONLY CATEGORIES OF QUERY:");
+  console.log("THIS IS ONLY THE DATABASE OF QUERY:");
   console.log(req.query.c);
 
-  var db = req.query.c;
+  var category = req.query.c;
   var filters = req.query.f;
   var education = "hhsa_san_diego_demographics_education_2012_norm";
   var industry = "hhsa_san_diego_demographics_occupat_industry_2012_norm";
@@ -62,25 +62,25 @@ app.get('/delphidata', function (req, res) {
   var query = "SELECT * FROM ";
 
   //FROM....... (database)
-  switch (db.split(" ")[0]) {
+  switch (req.query.c) {
     case "Industry":
       query += industry + " ";
+      query += "WHERE \"Industry\"=\'";
       break;
+
     case "Education":
       query += education + " ";
+      query += "WHERE \"Education\"=\'";
       break;
+
     case "Mar_status":
       query += mar_status + " ";
+      query += "WHERE \"Marital Status\"=\'";
       break;
   }
 
-  console.log("------------------DB SPLIT:-------------");
-  console.log(db.split(" ")[0]);
-
-  //query += db.split(" ")[0] + " ";
-
   //WHERE....... (filters)
-  query += "WHERE \"" + db + "\"=\'" + filters + "\'";
+  query += filters + "\'";
 
   console.log("finalized query:");
   console.log(query);

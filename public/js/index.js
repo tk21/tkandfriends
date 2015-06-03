@@ -1,4 +1,4 @@
-var DelphiDemo = DelphiDemo || (function() {
+var DelphiData = DelphiData || (function() {
   var self = {};
   // AJAX request to server to retrieve delphi data.
   // self.getDelphiData = function() {
@@ -15,65 +15,56 @@ var DelphiDemo = DelphiDemo || (function() {
 
   // Takes query string and passes it into the database to be processed
   self.getDelphiData = function() {
-    console.log("INDEXJS: getting delphi data------------------");
+    console.log("INDEXJS: ------getting all of delphi data------------------");
 
     var filters = "";
     var cats = "";
 
-    var checked_education = false;
-    var checked_industry = false;
-    var checked_mar_status = false;
-
+    //DATABASE----------------------------------------------------------------
     //pull from EDUCATION database if checked 
     $('input[name="education"]').each(function() {
       if ($(this).is(":checked")) {
-        checked_education = true;
+        document.category = "Education";
       }
     });
-    if (checked_education) {
-      cats += "Education" + " ";
-    }
 
     //pull from INDUSTRY database if checked 
     $('input[name="industry"]').each(function() {
-      if ($(this).is(":checked")) {
-        checked_industry = true;
+       if ($(this).is(":checked")) {
+        document.category = "Industry";
       }
     });
-    if (checked_industry) {
-      cats += "Industry" + " ";
-    }
 
     //pull from MARITAL STATUS database if checked 
     $('input[name="marital_status"]').each(function() {
       if ($(this).is(":checked")) {
-        checked_mar_status = true;
+        document.category = "Marital_Status";
       }
     });
-    if (checked_mar_status) {
-      cats += "Mar_status" + " ";
-    }
 
-    //concatenate user-selected filters
+    //FILTERS-----------------------------------------------------------------
     console.log("these are the values you checked off:");
     $("input[type=checkbox]:checked").map(function() {
       console.log(this.value);
       filters += this.value + " ";
     });
 
-    document.categories = cats;
-    document.filters = filters;
+    // remove the last space character for query
+    document.filters = filters.substring(0, filters.length - 1);
 
     //send AJAX GET request to get delphi data with chosen filters
     $.ajax({
-      url: "/bars",
-      data: {f: filters, c: cats}
+      url: "/delphidata",
+      data: {f: document.filters, c: document.category},
+
+      // THIS IS JUST FOR TESTING, SHOULD PRINT TO WEB CONSOLE
+      success: function(data) {
+        console.log("Successfully sent the query! Here is your data:");
+        console.log(data);
+      }
     });
 
     /**$.getJSON("/delphidata", function(data) {
-      console.log("DATA INSIDE:");
-      console.log(data);
-
     //   // get data and process by row
     //   var rows = $.map(data, function(item, i) {
     //     console.log(item);
@@ -91,6 +82,6 @@ var DelphiDemo = DelphiDemo || (function() {
 })();
 
 
-$(document).ready(function() {
-  DelphiDemo.init();
-});
+// $(document).ready(function() {
+//   console.log("");
+// });
