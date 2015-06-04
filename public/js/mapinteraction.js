@@ -49,33 +49,15 @@ $(document).ready(function () {
     $(region).mapster('set');
   });
 
-  $('map area').hover(function() {
-    hovered = $(this).attr('id');
-    // console.log(hovered);
-    $('.tooltip').tooltipster({
+  $('map area').tooltipster({
       content: $(this).attr('id')
     });
-  });
 
-  //MAP REGION CLICK: adds region to global regions array for querying
-  $('map area').click(function() {
-    console.log("MAPINTERACTIONS--------------------------------------");
-    var region = $(this).attr('id');
-
-    //only add region if not already listed, avoid duplicates
-    if (window.regions.indexOf(region) === -1) {
-      console.log("we are pushing to global array");
-      window.regions.push(region);
-    }
-    //remove region from query on deselect
-    else {
-      console.log("we are removing from global array");
-      window.regions.splice(window.regions.indexOf(region), 1);
-    } 
-    console.log("WINDOW.REGIONS in mapinteractions:");
-    console.log(window.regions);
-
-  });
+  /*$('map area').hover(function() {
+    $(this).tooltipster({
+      content: $(this).attr('id')
+    });
+});*/
 
 //  NEED TO FIGURE OUT HOW TO MAKE MAP HIGHLIGHT ON LIST HOVER  
 //  $('#regionList li').mouseenter(function () {
@@ -86,6 +68,38 @@ $(document).ready(function () {
 //      $(region).mapster('highlight',false);
 //    });
 //  });
+});
+
+//For individual region's onHover() method, query for that single region, 
+//populate hover_info div with results
+$('map area').hover(function() {
+  console.log("WE HOVERIN OUT HERE---------------------");
+  parent.document.region = $(this).attr('id');
+
+  //IF DATABASE SELECTED: query database to populate hover_info
+  if (parent.document.category) {
+    $.ajax({
+      url: 'delphidata',
+
+      data: {f: parent.document.filters, c: parent.document.category, r: parent.document.region},
+
+      success: function(data) {
+        console.log("PARENT REGION:");
+        console.log(parent.document.region);
+        $('#hover_info').html("<h3>" + parent.document.region + "</h3>");
+        $.map(data, function(item) {
+          //console.log("inside map this is your item:");
+          //console.log(item);
+        });
+      }
+    });
+  }
+
+  //IF DATABASE not yet selected: display tooltip with area name
+  // Tipped.create("map area#" + parent.document.region, "excuse me? move",//parent.document.region,
+  //   { behavior: 'mouse'});/
+  //$('map area#' + parent.document.region).mapster('tooltip');
+
 });
 
 
