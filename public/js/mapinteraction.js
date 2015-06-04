@@ -52,26 +52,7 @@ $(document).ready(function () {
   $('map area').tooltipster({
       content: $(this).attr('id')
     });
-});*/
-
-//  NEED TO FIGURE OUT HOW TO MAKE MAP HIGHLIGHT ON LIST HOVER  
-//  $('#regionList li').mouseenter(function () {
-//    var region = $(this).attr('id').replace('List', '');
-//    region = '#' + region;
-//    $(region).mapster('highlight');
-//    $('this').mouseleave(function () {
-//      $(region).mapster('highlight',false);
-//    });
-//  });
 });
-
-  //IF DATABASE not yet selected: display tooltip with area name
-  // Tipped.create("map area#" + parent.document.region, "excuse me? move",//parent.document.region,
-  //   { behavior: 'mouse'});/
-  //$('map area#' + parent.document.region).mapster('tooltip');
-
-});
-
 
 
 
