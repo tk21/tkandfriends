@@ -8,32 +8,20 @@ var DelphiData = DelphiData || (function() {
          console.log(item);
          return "<tr><td>" + item.Area + "</td><td>" + item.Industry + "</td><td>" + item.Occupation + "</td></tr>";
        }).join("");
-
-       $("#delphi-table").append(rows);
      });*/
 
 
   // Takes query string and passes it into the database to be processed
   self.getDelphiData = function() {
-    console.log("INDEXJS: ------getting all of delphi data------------------");
-
-    var filters = "";
-    var cats = "";
-
-    //FILTERS-----------------------------------------------------------------
-    console.log("these are the values you checked off:");
-    $("input[type=checkbox]:checked").map(function() {
-      console.log(this.value);
-      filters += this.value + " ";
-    });
-
-    // remove the last space character for query
-    document.filters = filters.substring(0, filters.length - 1);
-
+    console.log("INDEXJS: ------trying to retrieve delphi data------------------");
+    console.log("this is the (filter | category | region) we are sending to query");
+    console.log(filters);
+    console.log(category);
+    console.log(regs);
     //send AJAX GET request to get delphi data with chosen filters
     $.ajax({
       url: "/delphidata",
-      data: {f: document.filters, c: document.category},
+      data: {f: filters, c: category, r: regs},
 
       // THIS IS JUST FOR TESTING, SHOULD PRINT TO WEB CONSOLE
       success: function(data) {
@@ -41,15 +29,6 @@ var DelphiData = DelphiData || (function() {
         console.log(data);
       }
     });
-
-    /*$.getJSON("/delphidata", function(data) {
-       // get data and process by row
-       var rows = $.map(data, function(item, i) {
-         console.log(item);
-       });
-
-       return data;
-    });*/
   };
 
   // initialize
@@ -59,10 +38,29 @@ var DelphiData = DelphiData || (function() {
   return self;
 })();
 
+//button listener for MAP REGION selection
+$('map area').click(function() {
+  var region = $(this).attr('id');
+
+  //only add region if not already listed, avoid duplicates
+  if (regs.indexOf(region) === -1) {
+    console.log("we are pushing to global array");
+    regs.push(region);
+
+  }
+
+  //remove region from query on deselect
+  else {
+    regs.splice(regs.indexOf(region), 1);
+  }
+  console.log(regs);
+});
 
 //button listener for DB selection
 $("#side_nav .col-sm-12").click(function() {
   console.log("CLICKED A DB BUTTON ");
+
+  //set global variables to be set which database to be queried
   if ($(this).attr('id') == "Marital_Status_Button") {
     parent.document.category = "Marital Status";
   }

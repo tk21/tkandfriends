@@ -46,7 +46,6 @@ app.get('/', function (req, res) {
 //PIE CHART: when all data is queried for ONLY ONE region.
 app.get('/pie', function (req, res) {
   res.render('pie');
-  console.log(req.query);
 });
 
 //retrieve data 
