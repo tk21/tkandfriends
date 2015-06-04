@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  
+
 //  $('#map').mapster('resize',auto,100%);
   
   $('#map').mapster({
@@ -28,6 +28,12 @@ $(document).ready(function () {
     $('#region_li').slideToggle();
   });
   
+  $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
+    var db_color = $(this).css('background-color');
+    console.log(db_color);
+    $('.body').css('background-color', db_color);
+  });
+  
   $('#regionList li').click(function () {
     //console.log('List Clicked');
     var region = $(this).attr('id').replace(' List', '');
@@ -42,7 +48,15 @@ $(document).ready(function () {
     //THIS ALREADY TOGGLES
     $(region).mapster('set');
   });
-  
+
+  $('map area').hover(function() {
+    hovered = $(this).attr('id');
+    console.log(hovered);
+    $('.tooltip').tooltipster({
+      content: $(this).attr('id')
+    })
+});
+
 //  NEED TO FIGURE OUT HOW TO MAKE MAP HIGHLIGHT ON LIST HOVER  
 //  $('#regionList li').mouseenter(function () {
 //    var region = $(this).attr('id').replace('List', '');
@@ -53,7 +67,6 @@ $(document).ready(function () {
 //    });
 //  });
 });
-
 
 //For individual region's onHover() method, query for that single region, 
 //populate hover_info div with results
@@ -83,7 +96,7 @@ $('map area').hover(function() {
   //IF DATABASE not yet selected: display tooltip with area name
   // Tipped.create("map area#" + parent.document.region, "excuse me? move",//parent.document.region,
   //   { behavior: 'mouse'});/
-  $('map area#' + parent.document.region).mapster('tooltip');
+  //$('map area#' + parent.document.region).mapster('tooltip');
 
 });
 
