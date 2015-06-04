@@ -25,7 +25,6 @@ $(document).ready(function () {
       }
     }
   });
-  });
   
   $('#region_list_button').click(function(){
     $('#region_li').slideToggle();
