@@ -28,6 +28,12 @@ $(document).ready(function () {
     $('#region_li').slideToggle();
   });
   
+  $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
+    var db_color = $(this).css('background-color');
+    console.log(db_color);
+    $('.body').css('background-color', db_color);
+  });
+  
   $('#regionList li').click(function () {
     //console.log('List Clicked');
     var region = $(this).attr('id').replace(' List', '');

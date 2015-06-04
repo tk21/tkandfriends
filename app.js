@@ -43,11 +43,10 @@ app.get('/', function (req, res) {
   console.log("index should be rendered.")
 });
 
-//render bar chart
-app.get('/bars', function (req, res) {
-  res.render('bars');
+//PIE CHART: when all data is queried for ONLY ONE region.
+app.get('/pie', function (req, res) {
+  res.render('pie');
   console.log(req.query);
-  console.log("Attempted to render bar chart.");
 });
 
 //retrieve data 
