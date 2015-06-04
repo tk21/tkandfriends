@@ -52,11 +52,6 @@ $(document).ready(function () {
   $('map area').tooltipster({
       content: $(this).attr('id')
     });
-
-  /*$('map area').hover(function() {
-    $(this).tooltipster({
-      content: $(this).attr('id')
-    });
 });*/
 
 //  NEED TO FIGURE OUT HOW TO MAKE MAP HIGHLIGHT ON LIST HOVER  
@@ -69,31 +64,6 @@ $(document).ready(function () {
 //    });
 //  });
 });
-
-//For individual region's onHover() method, query for that single region, 
-//populate hover_info div with results
-$('map area').hover(function() {
-  console.log("WE HOVERIN OUT HERE---------------------");
-  parent.document.region = $(this).attr('id');
-
-  //IF DATABASE SELECTED: query database to populate hover_info
-  if (parent.document.category) {
-    $.ajax({
-      url: 'delphidata',
-
-      data: {f: parent.document.filters, c: parent.document.category, r: parent.document.region},
-
-      success: function(data) {
-        console.log("PARENT REGION:");
-        console.log(parent.document.region);
-        $('#hover_info').html("<h3>" + parent.document.region + "</h3>");
-        $.map(data, function(item) {
-          //console.log("inside map this is your item:");
-          //console.log(item);
-        });
-      }
-    });
-  }
 
   //IF DATABASE not yet selected: display tooltip with area name
   // Tipped.create("map area#" + parent.document.region, "excuse me? move",//parent.document.region,
