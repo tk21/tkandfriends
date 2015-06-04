@@ -63,11 +63,6 @@ app.get('/delphidata', function (req, res) {
 
   //SELECT.....
   var query = 'SELECT * FROM ';
-  //query += education + ' ';
-  //query += 'WHERE "Education" = \'Nursery/preschool - Total enrollment (age 3 and older)\'';
-  //query += filters;
-  //ar query = 'SELECT * FROM ' + education;
-  //var query = 'SELECT * FROM hhsa_san_diego_demographics_education_2012_norm';
 
   //FROM....... (database)
   switch (req.query.c) {

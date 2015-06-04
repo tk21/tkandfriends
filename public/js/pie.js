@@ -1,24 +1,32 @@
 /** PIE.JS
  *  Route to display a pie chart, when all data for only one region is selected.
  **/
+
+//TESTING OMMMMMMGGG
+console.log("PIEJS:--------------------------------------");
+console.log("FILTERS | CATEGORY | REGIONS");
+console.log(parent.filters);
+console.log(parent.category);
+console.log(parent.regions);
+
 (function() {
   $.ajax({
     url: "/delphidata",
 
-    data: {f: parent.document.filters, c: parent.document.category, r: parent.document.region},
+    data: {f: parent.filters, 
+           c: parent.category, 
+           r: parent.regions},
 
     success: function(data) {
-      console.log("We were able to successfully access delphi data:");
-      console.log(data);
 
       var all_columns= [];
 
       $.map(data, function(item) {
         var column = [];
-        column.push(item[parent.document.category]);
+        column.push(item[parent.category]);
 
         //do not include total counts as its own column
-        if (item[parent.document.category].includes('Total') == false) {
+        if (item[parent.category].includes('Total') == false) {
           column.push(item['Occupation']);
         }
         all_columns.push(column);

@@ -1,4 +1,7 @@
+<!-- WHEN INSIDE IFRAME, accessing the 'global' variables by calling on
+    "parent....". using "window" will not work as it is in a "child" window!-->
 <head>
+  <script>console.log("INSIDE JUSTIFRAME.HTML----");console.log(parent.regions);</script>
   <script src="d3.min.js"></script>
   <script src="c3.min.js"></script>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
