@@ -22,7 +22,11 @@ console.log(parent.document.region);
       $.map(data, function(item) {
         var column = [];
         column.push(item[parent.document.category]);
-        column.push(item['Occupation']);
+
+        //do not include total counts as its own column
+        if (item[parent.document.category].includes('Total') == false) {
+          column.push(item['Occupation']);
+        }
         all_columns.push(column);
       });
 
