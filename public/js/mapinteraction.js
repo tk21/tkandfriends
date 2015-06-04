@@ -11,17 +11,20 @@ $(document).ready(function () {
     scaleMap:true,
     wrapClass:'pull-right',
     onClick: function (e) {
-      var region = e.key + " List"
-      console.log(region)
-      var listColor = $('#' + region).css("background-color");
-      console.log(listColor);
-      if($('#' + region).hasClass('active_region')){
+      var region = 'li[region_in_list="' + e.key + ' List"]';
+//      console.log($(region));
+      //What are these for?? Also, they don't work because .css will return rgb, not hex.
+//      var region_on_list = $('#' + region).css("background-color");
+//      console.log(listColor);
+      if($(region).hasClass('active_region')){
+        //why?!
         console.log('here');
-        $('#' + region).removeClass('active_region');
+        $(region).removeClass('active_region');
       }else{
-        $('#' + region).addClass('active_region');
+        $(region).addClass('active_region');
       }
     }
+  });
   });
   
   $('#region_list_button').click(function(){
