@@ -8,8 +8,7 @@
 /*For all floating nav items*/
 #side_nav,
 #region_list_area,
-#visualize_button,
-#hover_info{
+#visualize_button{
   z-index: 1;
   position: fixed;
 }
@@ -26,17 +25,8 @@
 }
 
 #visualize_button,
-#region_list_area,
-#hover_info{
+#region_list_area{
   background-color: rgba(0,0,0,.2); 
-}
-
-#hover_info{
-  height:50%;
-  width:30%;
-  top:70%;
-  left:20%;
-  /*border-radius: 5px;*/
 }
 
 /*Sidebar Styling*/
