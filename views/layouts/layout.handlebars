@@ -15,11 +15,35 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/custom.css" />
   <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+  <link rel="stylesheet" type="text/css" href="/css/c3.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <!--<link rel="stylesheet" type="text/css" href="css/tipped.css" />-->
   <link href="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.css" type="text/css" rel="stylesheet" title="Featherlight Styles" />
 </head>
 
 <body>
+  
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js "></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.0.0.js "></script>
+  <script type="text/javascript " src="js/index.js "></script>
+  <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+  <!--<script src="js/tipped.js"></script>-->
+  <script src="http://modernizr.com/downloads/modernizr-latest.js "></script>
+  <script src="js/bootstrap.min.js "></script>
+  <script src="js/jquery.imagemapster.js "></script>
+  <script src="js/mapinteraction.js "></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/c3.min.js"></script>
+  <script src="js/pie.js"></script>
+  <!--<script src="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.js " type="text/javascript " charset="utf-8 "></script>
+  <script>
+    $('#visualize_button').featherlight({
+      iframe: 'js/justiframe.html',
+      iframeWidth: '100%',
+      iframeHeight: '100%'
+    });
+
+  </script>-->
 
   <div class="container-fluid">
     <div class="row">
@@ -44,8 +68,7 @@
       </nav>
       <!--End Side Nav-->
 
-      <!--Visualization Button-->
-      <button type="button" id="visualize_button" class="btn btn-default btn-lg">Visualize Comparison</button>
+      
 
       <!--List-->
       <div class="col-sm-1" id="region_list_area">
@@ -57,34 +80,34 @@
             </label>
           </li>
           <div id="region_li">
-            <li id="Carlsbad List">Carlsbad</a></li>
-            <li id="Oceanside List">Oceanside</a></li>
-            <li id="Vista List">Vista</a></li>
-            <li id="Del Mar List">Del Mar</a></li>
-            <li id="Kearny Mesa List">Kearny Mesa</a></li>
-            <li id="Miramar List">Miramar</a></li>
-            <li id="Mid City List">Mid City</a></li>
-            <li id="Chula Vista List">Chula Vista</a></li>
-            <li id="Coronado List">Coronado</a></li>
-            <li id="National City List">National City</a></li>
-            <li id="Alpine List">Alpine</a></li>
-            <li id="El Cajon List">El Cajon</a></li>
-            <li id="Jamul List">Jamul</a></li>
-            <li id="LaMesa List">La Mesa</a></li>
-            <li id="LagunaPineValley List">Laguna-Pine Valley</a></li>
-            <li id="Lakeside List">Lakeside</a></li>
-            <li id="Lemon Grove List">Lemon Grove</a></li>
-            <li id="Santee List">Santee</a></li>
-            <li id="Spring Valley List">Spring Valley</a></li>
-            <li id="Escondido List">Escondido</a></li>
-            <li id="Fallbrook List">Fallbrook</a></li>
-            <li id="North San Diego List">North San Diego</a></li>
-            <li id="PalomarJulian List">Palmomar-Julian</a></li>
-            <li id="Poway List">Poway</a></li>
-            <li id="Ramona List">Ramona</a></li>
-            <li id="San Marcos List">San Marcos</a></li>
-            <li id="Valley Center List">Valley Center</a></li>
-            <li id="University City List">University City</a></li>
+            <li id="Carlsbad List">Carlsbad</li>
+            <li id="Oceanside List">Oceanside</li>
+            <li id="Vista List">Vista</li>
+            <li id="Del Mar List">Del Mar</li>
+            <li id="Kearny Mesa List">Kearny Mesa</li>
+            <li id="Miramar List">Miramar</li>
+            <li id="Mid City List">Mid City</li>
+            <li id="Chula Vista List">Chula Vista</li>
+            <li id="Coronado List">Coronado</li>
+            <li id="National City List">National City</li>
+            <li id="Alpine List">Alpine</li>
+            <li id="El Cajon List">El Cajon</li>
+            <li id="Jamul List">Jamul</li>
+            <li id="LaMesa List">La Mesa</li>
+            <li id="LagunaPineValley List">Laguna-Pine Valley</li>
+            <li id="Lakeside List">Lakeside</li>
+            <li id="Lemon Grove List">Lemon Grove</li>
+            <li id="Santee List">Santee</li>
+            <li id="Spring Valley List">Spring Valley</li>
+            <li id="Escondido List">Escondido</li>
+            <li id="Fallbrook List">Fallbrook</li>
+            <li id="North San Diego List">North San Diego</li>
+            <li id="PalomarJulian List">Palmomar-Julian</li>
+            <li id="Poway List">Poway</li>
+            <li id="Ramona List">Ramona</li>
+            <li id="San Marcos List">San Marcos</li>
+            <li id="Valley Center List">Valley Center</li>
+            <li id="University City List">University City</li>
           </div>
         </ul>
       </div>
@@ -95,26 +118,6 @@
       </div>
     </div>
   </div>
-
-  <script src="http://code.jquery.com/jquery-2.1.4.min.js "></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.0.0.js "></script>
-  <script type="text/javascript " src="js/index.js "></script>
-  <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
-  <!--<script src="js/tipped.js"></script>-->
-  <script src="http://modernizr.com/downloads/modernizr-latest.js "></script>
-  <script src="js/bootstrap.min.js "></script>
-  <script src="js/jquery.imagemapster.js "></script>
-  <script src="js/mapinteraction.js "></script>
-  <script src="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.js " type="text/javascript " charset="utf-8 "></script>
-  <script>
-    $('#visualize_button').featherlight({
-      iframe: 'js/justiframe.html',
-      iframeWidth: '100%',
-      iframeHeight: '100%'
-    });
-
-  </script>
-
 
 </body>
 

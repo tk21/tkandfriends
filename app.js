@@ -40,7 +40,12 @@ app.set('port', process.env.PORT || 3000);
 //routes
 app.get('/', function (req, res) {
   res.render('index');
-  console.log("index should be rendered.")
+  console.log("index should be rendered.");
+});
+
+app.get('/visualization', function (req, res) {
+  res.render('visualization');
+  console.log("visualization should be rendered.");
 });
 
 //PIE CHART: when all data is queried for ONLY ONE region.

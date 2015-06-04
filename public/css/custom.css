@@ -19,7 +19,8 @@
   box-shadow: 2px 5px 3px slategray;
 }
 
-#visualize_button{
+#visualize_button,
+#home_button{
   top: 5%;
   left: 20%;
 }
