@@ -1,9 +1,3 @@
-console.log("INSIDE pie.js---------------------------------------");
-console.log("FILTERS | CATEGORY | REGION selected:");
-console.log(parent.document.filters);
-console.log(parent.document.category);
-console.log(parent.document.region);
-
 /** PIE.JS
  *  Route to display a pie chart, when all data for only one region is selected.
  **/
