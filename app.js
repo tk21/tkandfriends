@@ -95,15 +95,26 @@ app.get('/delphidata', function (req, res) {
     query += filters + "\'";
   }
 
-  //IF Querying for specific REGION
+  //REGION filters............. (regions)
   if (req.query.r !== "") {
     if (req.query.f) {
       query += 'AND "Area"=\'' + req.query.r + '\'';
     }
     else
-      query += 'WHERE "Area"=\'' + req.query.r + '\'';
+      query += 'WHERE "Area"=\'' + req.query.r[0] + '\'';
   }
-  
+
+  //parse the array accordingly if more than one region queried
+  if ((req.query.r).length > 1) {
+    console.log("APP.JS----MORE THAN ONE REGION SELECTED----");
+    var i = 1;
+    query += ' OR "Area"=\'' + req.query.r[i] + '\'';
+    while (i < (req.query.r).length - 1) {
+      i++;
+      query += ' OR "Area"=\'' + req.query.r[i] + '\'';
+    }
+  }
+
 
   console.log("finalized query:");
   console.log(query);

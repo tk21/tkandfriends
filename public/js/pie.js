@@ -18,7 +18,6 @@ console.log(parent.regions);
            r: parent.regions},
 
     success: function(data) {
-
       var all_columns= [];
 
       $.map(data, function(item) {
