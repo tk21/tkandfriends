@@ -8,6 +8,8 @@ var DelphiData = DelphiData || (function() {
     console.log(window.filters);
     console.log(window.category);
     console.log(window.regions);
+
+    
     //send AJAX GET request to get delphi data with chosen filters
     $.ajax({
       url: "/delphidata",

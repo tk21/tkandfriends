@@ -12,7 +12,7 @@ console.log(window.regions);
 
     data: {f: window.filters, 
            c: window.category, 
-           r: window.regs},
+           r: window.regions},
 
     success: function(data) {
       console.log("We were able to successfully access delphi data:");
