@@ -12,7 +12,7 @@ $(document).ready(function () {
     wrapClass:'pull-right',
     onClick: function (e) {
       var region = e.key + " List"
-      console.log(region)
+      //console.log(region)
       var listColor = $('#' + region).css("background-color");
       console.log(listColor);
       if($('#' + region).hasClass('active_region')){
@@ -56,22 +56,16 @@ $(document).ready(function () {
 
   //MAP REGION CLICK: adds region to global regions array for querying
   $('map area').click(function() {
-    console.log("MAPINTERACTIONS--------------------------------------");
     var region = $(this).attr('id');
 
     //only add region if not already listed, avoid duplicates
     if (window.regions.indexOf(region) === -1) {
-      console.log("we are pushing to global array");
       window.regions.push(region);
     }
     //remove region from query on deselect
     else {
-      console.log("we are removing from global array");
       window.regions.splice(window.regions.indexOf(region), 1);
     } 
-    console.log("WINDOW.REGIONS in mapinteractions:");
-    console.log(window.regions);
-
   });
 });
 
