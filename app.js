@@ -69,29 +69,17 @@ app.get('/delphidata', function (req, res) {
     case "Industry":
       query += industry + ' ';
       break;
-
     case "Education":
       query += education + ' ';
       break;
-
-    case "Mar_status":
+    case "Marital Status":
       query += mar_status + ' ';
       break;
   }
 
   //WHERE....... (filters)
   if (req.query.f) {
-    switch (req.query.c) {
-      case "Industry":
-        query += 'WHERE "Industry" = \'';
-        break;
-      case "Education":
-        query += 'WHERE "Education" = \'';
-        break;
-      case "Mar_status":
-        query += 'WHERE "Marital Status" = \'';
-        break;
-    }
+    query += 'WHERE "' + req.query.f + '" =\'';
     query += filters + "\'";
   }
 
@@ -114,7 +102,6 @@ app.get('/delphidata', function (req, res) {
       query += ' OR "Area"=\'' + req.query.r[i] + '\'';
     }
   }
-
 
   console.log("finalized query:");
   console.log(query);
