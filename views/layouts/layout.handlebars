@@ -104,10 +104,25 @@
   <script src="js/mapinteraction.js "></script>
   <script src="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.js " type="text/javascript " charset="utf-8 "></script>
   <script>
-    $('#visualize_button').featherlight({
-      iframe: 'js/justiframe.html',
-      iframeWidth: '100%',
-      iframeHeight: '100%'
+    var count = 0;
+  
+    $('#visualize_button').click(function () {
+      $('#region_li li').each(function() {
+        if( $(this).hasClass('active_region') ) {
+          count++;
+        }
+      });
+
+      if( count === 0 ){
+        alert("You must select a region before creating a vizualization!");
+      }
+      else {
+        $('#visualize_button').featherlight({
+          iframe: 'js/justiframe.html',
+          iframeWidth: '100%',
+          iframeHeight: '100%'
+        });
+      }
     });
 
   </script>

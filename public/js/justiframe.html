@@ -21,20 +21,42 @@
   <div class="small-8 columns" id="chart">
     <!-- wE MAY HAVE TO CHANGE THE PATH OF BARS.JS BECAUSE JUSTIFRAME SHOULDN'T
     BE IN THE JS FOLDER-->
-    <div id="chart"><script src="bars.js"></script></div>
+    <div id="chart"></div>
   </div>
 </div>
 
   <script>
     var title = "";
+    var count = 0;
+    var scriptURL;
+
     $('#Education_Button, #Industry_Button, #Marital_Status_Button', parent.top.document).each(function() {
-      console.log('name is: ' + $(this).attr('name'));
-      console.log($(this).attr('name'));
       if( $(this).attr('name') == 'active' ) {
-        console.log("HEY");
         title = $(this).text();
       }
     });
+
+    $('#region_li li', parent.top.document).each(function() {
+      if( $(this).hasClass('active_region') ) {
+        count++;
+      }
+    });
+
+    var script = document.createElement('script');
+    if( count == 0) {
+      alert("Please choose at least one region!");
+    }
+
+    else if( count == 1) {
+      url = "pie.js"
+    }
+
+    else if ( count > 1 ) {
+      url = "bars.js"
+    }
+
+    script.src=url;
+    $("body").append(script);
 
     console.log(title);
     document.getElementById("chartTitle").innerHTML = title;

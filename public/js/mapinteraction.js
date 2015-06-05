@@ -32,13 +32,17 @@ $(document).ready(function () {
   
   $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
     var db_color = $(this).css('background-color');
-    if( $(this).attr('name') == 'active') {
-       $(this).attr('name', '');
-    }
-    else {
-       $(this).attr('name', 'active');
-    }
-    
+    var button = $(this).attr('id');
+
+    $('#Education_Button, #Industry_Button, #Marital_Status_Button').each(function(){
+        if( $(this).attr('id') == button) {
+          $(this).attr('name', 'active');
+        }
+        else {
+          $(this).attr('name', '');
+        }
+    });
+
     $('.body, .active_region').css('background-color', db_color);
   });
   
