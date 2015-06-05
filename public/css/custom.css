@@ -11,12 +11,12 @@
 #visualize_button{
   z-index: 1;
   position: fixed;
+  box-shadow: 2px 5px 3px slategray;
 }
 
 #side_nav{
   top: 0;
   left: 0;
-  box-shadow: 2px 5px 3px slategray;
 }
 
 #visualize_button{
@@ -85,7 +85,7 @@
 #region_list_area {
   right:-15px;
   padding: 0;
-  /*border-bottom-left-radius: 10px;*/
+  border-bottom-left-radius: 5px;
   /*border-bottom-right-radius: 4px;*/
   max-height: 100%;
   overflow-y: scroll;
@@ -95,7 +95,6 @@
 .active_region,
 #regionList li:hover{
   background-color: rgba(0,0,0,.6);
-  
 }
 
 #regionList{
