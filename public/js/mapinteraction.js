@@ -43,7 +43,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.body, .active_region').css('background-color', db_color);
+    $('.body').css('background-color', db_color);
   });
   
   $('#regionList li').click(function () {
@@ -55,7 +55,7 @@ $(document).ready(function () {
     }else{
       $(this).addClass('active_region');
     }
-    $('#map').mapster('set', region);
+    $('#' + region).mapster('set');
   });
 
   //TOOLTIPS
