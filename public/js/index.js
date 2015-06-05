@@ -33,6 +33,10 @@ var DelphiData = DelphiData || (function() {
 //button listener for DB selection
 $("#side_nav .col-sm-12").click(function() {
   console.log("CLICKED A DB BUTTON ");
+  
+  window.filters = '';
+  window.category = '';
+  window.regions = [];
 
   //set global variables to be set which database to be queried
   if ($(this).attr('id') == "Marital_Status_Button") {

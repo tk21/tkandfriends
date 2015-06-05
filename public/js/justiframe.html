@@ -25,6 +25,7 @@
 </div>
 
   <script>
+
     var title = "";
     var count = 0;
     var scriptURL;
@@ -44,14 +45,14 @@
     var script = document.createElement('script');
 
     if( count == 1) {
-      url = "pie.js"
+      scriptURL = "pie.js"
     }
 
     else if ( count > 1 ) {
-      url = "bars.js"
+      scriptURL = "bars.js"
     }
 
-    script.src=url;
+    script.src= scriptURL;
     $("body").append(script);
 
     console.log(title);

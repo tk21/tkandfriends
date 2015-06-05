@@ -105,25 +105,31 @@
   <script src="//cdn.rawgit.com/noelboss/featherlight/1.2.0/release/featherlight.min.js " type="text/javascript " charset="utf-8 "></script>
   <script>
     var count = 0;
-  
-    $('#visualize_button').mouseenter(function () {
-      $('#region_li li').each(function() {
-        if( $(this).hasClass('active_region') ) {
-          count++;
-        }
-      });
 
-      if( count === 0 ){
-        alert("You must select a region before creating a vizualization!");
-      }
+    $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
+      count = 0;
+    });
 
-      else {
-        $('#visualize_button').featherlight({
+    $('#visualize_button').featherlight({
           iframe: 'js/justiframe.html',
           iframeWidth: '100%',
           iframeHeight: '100%'
         });
-      }
+
+    $('#region_li li, area').click(function() {
+        console.log("Suck it!")
+        var region_is_selected = $(this).attr('id');
+        if( $(this).hasClass('active_region') || region_is_selected){
+          count++;
+          console.log(count);
+        }else{
+          count--;
+        }
+        if( count === 0 ) {
+          $('#visualize_button').hide();
+        }else{
+          $('#visualize_button').show();
+        }
     });
 
   </script>

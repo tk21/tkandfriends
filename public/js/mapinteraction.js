@@ -6,15 +6,14 @@ $(document).ready(function () {
   });
   
   $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
-    
-    $('#visualize_button,#region_list_area').show();
+    $('#region_list_area').show();
     
     $('#map').mapster({
     singleSelect: false,
     fill: true,
     altImage: "../img/ColoredRegionsAll.jpg",
     fillOpacity: 1,
-    mapKey : 'id',
+    mapKey : 'title',
     scaleMap:true,
     wrapClass:'pull-right',
     onClick: function (e) {
@@ -33,6 +32,8 @@ $(document).ready(function () {
     var button = $(this).attr('id');
 
     $('#Education_Button, #Industry_Button, #Marital_Status_Button').each(function(){
+        $('#region_li li').removeClass('active_region');
+
         if( $(this).attr('id') == button) {
           $(this).attr('name', 'active');
         }
@@ -44,7 +45,7 @@ $(document).ready(function () {
     $('.body').css('background-color', db_color);
   });
   
-  $('#regionList li').click(function () {
+  $('#region_li li').click(function () {
     console.log($(this));
     var region = $(this).attr('region_in_list').replace(' List', '');
     console.log(region);
@@ -53,7 +54,7 @@ $(document).ready(function () {
     }else{
       $(this).addClass('active_region');
     }
-    $('#' + region).mapster('set');
+    $(region).mapster('set');
   });
 
   //TOOLTIPS
