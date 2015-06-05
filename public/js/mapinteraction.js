@@ -11,15 +11,17 @@ $(document).ready(function () {
     scaleMap:true,
     wrapClass:'pull-right',
     onClick: function (e) {
-      var region = e.key + " List"
-      //console.log(region)
-      var listColor = $('#' + region).css("background-color");
-      console.log(listColor);
-      if($('#' + region).hasClass('active_region')){
+      var region = 'li[region_in_list="' + e.key + ' List"]';
+//      console.log($(region));
+      //What are these for?? Also, they don't work because .css will return rgb, not hex.
+//      var region_on_list = $('#' + region).css("background-color");
+//      console.log(listColor);
+      if($(region).hasClass('active_region')){
+        //why?!
         console.log('here');
-        $('#' + region).removeClass('active_region');
+        $(region).removeClass('active_region');
       }else{
-        $('#' + region).addClass('active_region');
+        $(region).addClass('active_region');
       }
     }
   });
@@ -31,22 +33,19 @@ $(document).ready(function () {
   $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
     var db_color = $(this).css('background-color');
     console.log(db_color);
-    $('.body').css('background-color', db_color);
+    $('.body, .active_region').css('background-color', db_color);
   });
   
   $('#regionList li').click(function () {
-    //console.log('List Clicked');
-    var region = $(this).attr('id').replace(' List', '');
-    region = '#' + region;
-    //This is where the the background color is set
+    console.log($(this));
+    var region = $(this).attr('region_in_list').replace(' List', '');
+    console.log(region);
     if($(this).hasClass('active_region')){
       $(this).removeClass('active_region');
     }else{
       $(this).addClass('active_region');
     }
-    //Modular means of setting regions via list
-    //THIS ALREADY TOGGLES
-    $(region).mapster('set');
+    $('#map').mapster('set', region);
   });
 
   //TOOLTIPS
