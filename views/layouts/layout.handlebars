@@ -106,7 +106,7 @@
   <script>
     var count = 0;
   
-    $('#visualize_button').click(function () {
+    $('#visualize_button').mouseenter(function () {
       $('#region_li li').each(function() {
         if( $(this).hasClass('active_region') ) {
           count++;
@@ -116,6 +116,7 @@
       if( count === 0 ){
         alert("You must select a region before creating a vizualization!");
       }
+
       else {
         $('#visualize_button').featherlight({
           iframe: 'js/justiframe.html',
