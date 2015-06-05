@@ -11,7 +11,6 @@
 
     success: function(data) {
       console.log("barsjs: inside success CATEGORY|REGIONS-----------------------");
-      // console.log(data);
 
       var all_columns_obj = {};
       var all_columns_array = [];
@@ -52,7 +51,6 @@
 
           //Create labels for x-axis
           if ( ($.inArray(item['Area'],column_labels)) == -1) {
-            console.log("!!!!!!!!!!!!!;LJFDAL;SDJFL;ASDFHKLAHSDFKJASDLKFJASDFASDF");
             column_labels.push(item['Area']);
             console.log(column_labels);
           }
@@ -65,8 +63,6 @@
         all_columns_array.push(value);
       });
 
-      console.log("ALL COLUMNS, after appending with filters");
-      console.log(all_columns_array);
       var chart = c3.generate({
         bindto: '#chart',
 
@@ -82,7 +78,7 @@
       });
 
       //this will show the regropuing animation
-      setTimeout(function () {
+      setTimeout(function () { 
         chart.groups([all_filters])
       }, 2000);
     },

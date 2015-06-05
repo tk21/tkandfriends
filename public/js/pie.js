@@ -18,15 +18,30 @@ console.log(parent.regions);
            r: parent.regions},
 
     success: function(data) {
+      console.log("PIEJS:success getting data");
       var all_columns= [];
+
+      //Which field need to pull data from depending on category chosen
+      var d = "";
+      switch (parent.category){
+        case "Education":
+          d = "Population";
+          break;
+        case "Industry":
+          d = "Occupation";
+          break;
+        case "Marital Status":
+          d = "Total";
+      }
 
       $.map(data, function(item) {
         var column = [];
         column.push(item[parent.category]);
 
         //do not include total counts as its own column
-        if (item[parent.category].includes('Total') == false) {
-          column.push(item['Occupation']);
+        if (item[parent.category].includes('Total') == false ) {
+           // && item[parent.category].includes('Any') == false) {
+          column.push(item[d]);
         }
         all_columns.push(column);
       });
