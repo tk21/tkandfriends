@@ -11,7 +11,7 @@
 #visualize_button{
   z-index: 1;
   position: fixed;
-  box-shadow: 2px 5px 3px slategray;
+  box-shadow: 2px 2px 3px gray;
 }
 
 #side_nav{
@@ -27,6 +27,7 @@
 #visualize_button,
 #region_list_area{
   background-color: rgba(0,0,0,.4); 
+  display: none;
 }
 
 /*Sidebar Styling*/

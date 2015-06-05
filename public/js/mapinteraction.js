@@ -1,8 +1,15 @@
 $(document).ready(function () {
 
 //  $('#map').mapster('resize',auto,100%);
+  $('#region_list_button').click(function(){
+    $('#region_li').slideToggle();
+  });
   
-  $('#map').mapster({
+  $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
+    
+    $('#visualize_button,#region_list_area').show();
+    
+    $('#map').mapster({
     singleSelect: false,
     fill: true,
     altImage: "../img/ColoredRegionsAll.jpg",
@@ -12,10 +19,6 @@ $(document).ready(function () {
     wrapClass:'pull-right',
     onClick: function (e) {
       var region = 'li[region_in_list="' + e.key + ' List"]';
-//      console.log($(region));
-      //What are these for?? Also, they don't work because .css will return rgb, not hex.
-//      var region_on_list = $('#' + region).css("background-color");
-//      console.log(listColor);
       if($(region).hasClass('active_region')){
         //why?!
         console.log('here');
@@ -25,12 +28,7 @@ $(document).ready(function () {
       }
     }
   });
-  
-  $('#region_list_button').click(function(){
-    $('#region_li').slideToggle();
-  });
-  
-  $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
+    
     var db_color = $(this).css('background-color');
     var button = $(this).attr('id');
 
@@ -42,7 +40,7 @@ $(document).ready(function () {
           $(this).attr('name', '');
         }
     });
-
+    
     $('.body').css('background-color', db_color);
   });
   
