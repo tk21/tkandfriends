@@ -32,7 +32,13 @@ $(document).ready(function () {
   
   $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
     var db_color = $(this).css('background-color');
-    console.log(db_color);
+    if( $(this).attr('name') == 'active') {
+       $(this).attr('name', '');
+    }
+    else {
+       $(this).attr('name', 'active');
+    }
+    
     $('.body, .active_region').css('background-color', db_color);
   });
   

@@ -8,10 +8,9 @@
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
 </head>
 
-
 <div class="row">
   <div class="small-12 columns">
-    <h1>This should be a title</h1>
+    <h1 id="chartTitle"></h1>
   </div>
 </div>
 <div class="row">
@@ -25,3 +24,18 @@
     <div id="chart"><script src="pie.js"></script></div>
   </div>
 </div>
+
+  <script>
+    var title = "";
+    $('#Education_Button, #Industry_Button, #Marital_Status_Button', parent.top.document).each(function() {
+      console.log('name is: ' + $(this).attr('name'));
+      console.log($(this).attr('name'));
+      if( $(this).attr('name') == 'active' ) {
+        console.log("HEY");
+        title = $(this).text();
+      }
+    });
+
+    console.log(title);
+    document.getElementById("chartTitle").innerHTML = title;
+  </script>
