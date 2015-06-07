@@ -108,6 +108,7 @@
 
     $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
       count = 0;
+      $('#visualize_button').hide();
     });
 
     $('#visualize_button').featherlight({
@@ -118,14 +119,23 @@
 
     $('#region_li li, area').click(function() {
         console.log("Suck it!")
-        var region_is_selected = $(this).attr('id');
+        
+        var region_is_selected;
+      
+        if($(this).is('area')){
+          //have a ! because it this detects if it's selected BEFORE CLICKED. So
+          //regions you are activating are classified as not activated because 
+          //they weren't active when you clicked
+          region_is_selected = !$(this).mapster('get', $(this).attr('id'));
+        }
         if( $(this).hasClass('active_region') || region_is_selected){
           count++;
           console.log(count);
         }else{
           count--;
+          console.log(count);
         }
-        if( count === 0 ) {
+        if( count <= 0 ) {
           $('#visualize_button').hide();
         }else{
           $('#visualize_button').show();

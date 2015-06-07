@@ -13,7 +13,7 @@ $(document).ready(function () {
     fill: true,
     altImage: "../img/ColoredRegionsAll.jpg",
     fillOpacity: 1,
-    mapKey : 'title',
+    mapKey : 'id',
     scaleMap:true,
     wrapClass:'pull-right',
     onClick: function (e) {
