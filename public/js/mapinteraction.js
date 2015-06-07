@@ -1,18 +1,26 @@
 $(document).ready(function () {
-
+  
 //  $('#map').mapster('resize',auto,100%);
   $('#region_list_button').click(function(){
     $('#region_li').slideToggle();
   });
   
   $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){
+    
+    var db_color = $(this).css('background-color');
+    
+    $('.body').css('background-color', db_color);
+    
+    db_color = rgb2hex(db_color);
+  
     $('#region_list_area').show();
     
     $('#map').mapster({
     singleSelect: false,
     fill: true,
-    altImage: "../img/ColoredRegionsAll.jpg",
-    fillOpacity: 1,
+    //altImage: "../img/ColoredRegionsAll.jpg",
+    fillColor: db_color,
+    fillOpacity: .8,
     mapKey : 'id',
     scaleMap:true,
     wrapClass:'pull-right',
@@ -28,11 +36,13 @@ $(document).ready(function () {
     }
   });
     
-    var db_color = $(this).css('background-color');
-    var button = $(this).attr('id');
+    
 
     $('#Education_Button, #Industry_Button, #Marital_Status_Button').each(function(){
-        $('#region_li li').removeClass('active_region');
+      
+      var button = $(this).attr('id');
+      
+      $('#region_li li').removeClass('active_region');
 
         if( $(this).attr('id') == button) {
           $(this).attr('name', 'active');
@@ -41,44 +51,40 @@ $(document).ready(function () {
           $(this).attr('name', '');
         }
     });
-    
-    $('.body').css('background-color', db_color);
   });
   
   
   //list->map
   
   $('#region_li li').click(function () {
-    console.log($(this));
+    var area_toggle;
+    
     var region = $(this).attr('region_in_list').replace(' List', '');
-    console.log(region);
+
     if($(this).hasClass('active_region')){
       $(this).removeClass('active_region');
+      area_toggle = "false";
     }else{
       $(this).addClass('active_region');
+      area_toggle = "true"
     }
-    //THIS IS WHERE REGION ON MAP IS SET
-    
-    //for some reason, the line below wouldn't toggle- i had to 
-    //manually set to true.
-    //$('#map').mapster('set', true, region);
-    
-    //Using title as selector
-    //also didn't work... fuck mapster
-    //$('li[title="' + region + '"]').mapster('set');
-    
-    //doing this instead
-    if(!$('#map').mapster('get', region) && $(this).hasClass('active_region')){
-       $('#map').mapster('set', true, region);
-     }else{
-        $('#map').mapster('set', false, region); 
-     }
+  
+    $('#map').mapster('set', area_toggle, region);
   });
 
   //TOOLTIPS
   $('map area').tooltipster({
       content: $(this).attr('id')
   });
+  
+  //Converts RGB to Hex Values
+  function rgb2hex(rgb) {
+    rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+    function hex(x) {
+        return ("0" + parseInt(x).toString(16)).slice(-2);
+    }
+    return hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  }
 
   //MAP REGION CLICK: adds region to global regions array for querying
   $('map area').click(function() {
