@@ -57,8 +57,22 @@ $(document).ready(function () {
     }else{
       $(this).addClass('active_region');
     }
-    //this is where area is set on map
-    $('#map').mapster('set', region);
+    //THIS IS WHERE REGION ON MAP IS SET
+    
+    //for some reason, the line below wouldn't toggle- i had to 
+    //manually set to true.
+    //$('#map').mapster('set', true, region);
+    
+    //Using title as selector
+    //also didn't work... fuck mapster
+    //$('li[title="' + region + '"]').mapster('set');
+    
+    //doing this instead
+    if(!$('#map').mapster('get', region) && $(this).hasClass('active_region')){
+       $('#map').mapster('set', true, region);
+     }else{
+        $('#map').mapster('set', false, region); 
+     }
   });
 
   //TOOLTIPS
