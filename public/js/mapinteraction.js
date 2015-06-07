@@ -45,6 +45,9 @@ $(document).ready(function () {
     $('.body').css('background-color', db_color);
   });
   
+  
+  //list->map
+  
   $('#region_li li').click(function () {
     console.log($(this));
     var region = $(this).attr('region_in_list').replace(' List', '');
@@ -54,7 +57,8 @@ $(document).ready(function () {
     }else{
       $(this).addClass('active_region');
     }
-    $(region).mapster('set');
+    //this is where area is set on map
+    $('#map').mapster('set', region);
   });
 
   //TOOLTIPS
