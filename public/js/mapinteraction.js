@@ -7,7 +7,7 @@ $(document).ready(function () {
   
   //ON DB BUTTON CLICK....
   $('#Education_Button, #Industry_Button, #Marital_Status_Button').click(function(){ 
-    console.log("we clicked a button");
+    //console.log("we clicked a button");
     var db_color = $(this).css('background-color');
     console.log(db_color);
 
@@ -17,7 +17,7 @@ $(document).ready(function () {
     db_color = rgb2hex(db_color);
 
     $('#region_list_area').show();
-    $('#help_button').hide();
+    //$('#help_button').hide();
         
     //activates mapster after DB button click only
     $('#map').mapster({
