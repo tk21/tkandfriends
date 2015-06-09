@@ -14,6 +14,7 @@ $(document).ready(function () {
     db_color = rgb2hex(db_color);
   
     $('#region_list_area').show();
+    $('#help_button').hide();
     
     $('#map').mapster({
     singleSelect: false,
