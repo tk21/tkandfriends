@@ -64,29 +64,29 @@
 
 /*Education Button Styling*/
 #Education_Button {
-  background-color: rgba(0, 255, 255, .7);
+  background-color: rgba(0,168,198, .7);
 }
 
 #Education_Button:hover {
-  background-color: rgba(0, 255, 255, 1);
+  background-color: rgba(0,168,198, 1);
 }
 
 /*Occupation Button Styling*/
 #Industry_Button {
-  background-color: rgba(178, 34, 34, .7);
+  background-color: rgba(204,42,65, .7);
 }
 
 #Industry_Button:hover {
-  background-color: rgba(178, 34, 34, 1);
+  background-color: rgba(204,42,65, 1);
 }
 
 /*Marital Button Styling*/
 #Marital_Status_Button {
-  background-color: rgba(50, 205, 50, .7);
+  background-color: rgba(143,190,0, .7);
 }
 
 #Marital_Status_Button:hover {
-  background-color: rgba(50, 205, 50, 1);
+  background-color: rgba(143,190,0, 1);
 }
 
 
