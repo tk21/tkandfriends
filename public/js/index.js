@@ -139,10 +139,10 @@ $(document).ready(function() {
         $("#Carlsbad").mapster('select');
       }
     });
-    // intro.start();
+    intro.start();
 
     //testing
-    intro.goToStep(5).start();
+    // intro.goToStep(5).start();
   };
 });
 
