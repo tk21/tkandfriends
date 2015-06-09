@@ -24,11 +24,15 @@
     var count = 0;
     var scriptURL;
 
-    $('#Education_Button, #Industry_Button, #Marital_Status_Button', parent.top.document).each(function() {
+    title = parent.category;
+
+    /*$('#Education_Button, #Industry_Button, #Marital_Status_Button', parent.top.document).each(function() {
       if( $(this).attr('name') == 'active' ) {
         title = $(this).text();
+        console.log("THE TITLE IS:" + title);
+        console.log("THE CATEGORY IS:" + parent.category);
       }
-    });
+    });*/
 
     $('#region_li li', parent.top.document).each(function() {
       if( $(this).hasClass('active_region') ) {
